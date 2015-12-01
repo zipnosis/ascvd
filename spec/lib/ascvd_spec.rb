@@ -106,6 +106,28 @@ describe Ascvd do
     end
   end
 
+
+  describe '#errors' do
+    let(:options)  { { sex: 'X', age: 200 } }
+    it 'returns an array of errors' do
+      expect(set1.errors.length).to eq(2)
+    end
+  end
+
+  describe '#valid' do
+    context 'valid params' do
+      it 'returns true' do
+        expect(set1).to be_valid
+      end
+    end
+    context 'invalid params' do
+      let(:options) { { sex: 'X' } }
+      it 'returns false' do
+        expect(set1).not_to be_valid
+      end
+    end
+  end
+
   describe 'results' do
     context "female" do
 

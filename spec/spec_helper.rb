@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 require 'ascvd'
 require 'pry'
 
