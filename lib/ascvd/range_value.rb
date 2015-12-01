@@ -5,7 +5,7 @@ class Ascvd::RangeValue < Ascvd::Value
   end
 
   def error_message
-    "#{name} must be between #{min_value} and #{min_value}." unless valid?
+    "#{name} must be between #{min_value} and #{max_value}." unless valid?
   end
 
   def not_optimal?

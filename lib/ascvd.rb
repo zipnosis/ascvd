@@ -46,11 +46,11 @@ class Ascvd
       "F" => [0.50,0.39,0.39,0.27,0.08]
     }
 
-    return chart[@values[:sex].value][0] if major_issues >= 2
-    return chart[@values[:sex].value][1] if major_issues == 1
-    return chart[@values[:sex].value][2] if elevated_issues > 0
-    return chart[@values[:sex].value][3] if not_optimal_issues > 0
-    chart[@values[:sex]][4]
+    return chart[sex][0] if major_issues >= 2
+    return chart[sex][1] if major_issues == 1
+    return chart[sex][2] if elevated_issues > 0
+    return chart[sex][3] if not_optimal_issues > 0
+    chart[sex][4]
   end
 
 
