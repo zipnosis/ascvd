@@ -2,7 +2,7 @@ module TenYearCalculator
 
   def ten_year_ascvd
     return unless valid?
-    return if age < 40 or age > 79
+    return 'n/a' if age < 40 or age > 79
 
     chart = {
       'M' => {
