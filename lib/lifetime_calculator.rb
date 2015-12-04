@@ -9,7 +9,7 @@ module LifetimeCalculator
 
   def lifetime_ascvd
     return unless valid?
-    return if age < 20 or age > 59
+    return 'n/a' if age < 20 or age > 59
 
     return LIFETIME_VALUES[sex][0] if major_issues >= 2
     return LIFETIME_VALUES[sex][1] if major_issues == 1

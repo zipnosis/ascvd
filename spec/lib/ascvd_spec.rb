@@ -35,73 +35,73 @@ describe Ascvd do
     context 'at age 19' do
       let(:options) { { age: 19 } }
       it 'does not calculate a lifetime risk' do
-        expect(set1.lifetime_ascvd).to be_nil
+        expect(set1.lifetime_ascvd).to eq 'n/a'
       end
       it 'does not calculate a 10 year risk' do
-        expect(set1.ten_year_ascvd).to be_nil
+        expect(set1.ten_year_ascvd).to eq 'n/a'
       end
     end
     context 'at age 20' do
       let(:options) { { age: 20 } }
       it 'calculates a lifetime risk' do
-        expect(set1.lifetime_ascvd).not_to be_nil
+        expect(set1.lifetime_ascvd).not_to eq 'n/a'
       end
       it 'does not calculate a 10 year risk' do
-        expect(set1.ten_year_ascvd).to be_nil
+        expect(set1.ten_year_ascvd).to eq 'n/a'
       end
     end
     context 'at age 39' do
       let(:options) { { age: 39 } }
       it 'calculates a lifetime risk' do
-        expect(set1.lifetime_ascvd).not_to be_nil
+        expect(set1.lifetime_ascvd).not_to eq 'n/a'
       end
       it 'does not calculate a 10 year risk' do
-        expect(set1.ten_year_ascvd).to be_nil
+        expect(set1.ten_year_ascvd).to eq 'n/a'
       end
     end
     context 'at age 40' do
       let(:options) { { age: 40 } }
       it 'calculates a lifetime risk' do
-        expect(set1.lifetime_ascvd).not_to be_nil
+        expect(set1.lifetime_ascvd).not_to eq 'n/a'
       end
       it 'calculates a 10 year risk' do
-        expect(set1.ten_year_ascvd).not_to be_nil
+        expect(set1.ten_year_ascvd).not_to eq 'n/a'
       end
     end
     context 'at age 59' do
       let(:options) { { age: 59 } }
       it 'calculates a lifetime risk' do
-        expect(set1.lifetime_ascvd).not_to be_nil
+        expect(set1.lifetime_ascvd).not_to eq 'n/a'
       end
       it 'calculates a 10 year risk' do
-        expect(set1.ten_year_ascvd).not_to be_nil
+        expect(set1.ten_year_ascvd).not_to eq 'n/a'
       end
     end
     context 'at age 60' do
       let(:options) { { age: 60 } }
       it 'does not calculate a lifetime risk' do
-        expect(set1.lifetime_ascvd).to be_nil
+        expect(set1.lifetime_ascvd).to eq 'n/a'
       end
       it 'calculates a 10 year risk' do
-        expect(set1.ten_year_ascvd).not_to be_nil
+        expect(set1.ten_year_ascvd).not_to eq 'n/a'
       end
     end
     context 'at age 79' do
       let(:options) { { age: 79 } }
       it 'does not calculate a lifetime risk' do
-        expect(set1.lifetime_ascvd).to be_nil
+        expect(set1.lifetime_ascvd).to eq 'n/a'
       end
       it 'calculates a 10 year risk' do
-        expect(set1.ten_year_ascvd).not_to be_nil
+        expect(set1.ten_year_ascvd).not_to eq 'n/a'
       end
     end
     context 'at age 80' do
       let(:options) { { age: 80 } }
       it 'does not calculate a lifetime risk' do
-        expect(set1.lifetime_ascvd).to be_nil
+        expect(set1.lifetime_ascvd).to eq 'n/a'
       end
       it 'does not calculate a 10 year risk' do
-        expect(set1.ten_year_ascvd).to be_nil
+        expect(set1.ten_year_ascvd).to eq 'n/a'
       end
     end
   end
