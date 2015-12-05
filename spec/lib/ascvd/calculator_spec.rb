@@ -1,132 +1,74 @@
 require 'spec_helper'
 
-describe Ascvd do
+describe Ascvd::Calculator do
   let(:options) { {} }
-  let(:set1) { Ascvd.new({ sex: 'M', race: 'WH', age: 40, cholesterol: 170, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
-  let(:set2) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
-  let(:set3) { Ascvd.new({ sex: 'M', race: 'WH', age: 59, cholesterol: 170, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
+  let(:set1) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 40, cholesterol: 170, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
+  let(:set2) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
+  let(:set3) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 59, cholesterol: 170, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
 
-  let(:set4) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 180, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
-  let(:set5) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 200, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
-  let(:set6) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 240, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
+  let(:set4) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 180, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
+  let(:set5) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 200, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
+  let(:set6) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 240, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
 
-  let(:set7) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 120, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
-  let(:set8) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 140, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
-  let(:set9) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 160, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
+  let(:set7) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 120, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
+  let(:set8) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 140, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
+  let(:set9) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 160, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
 
-  let(:set10) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 110, bptreatment: true, diabetes: false, smoker: false }.merge(options)) }
-  let(:set11) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 110, bptreatment: false, diabetes: true, smoker: false }.merge(options)) }
-  let(:set12) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: true }.merge(options)) }
+  let(:set10) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 110, bptreatment: true, diabetes: false, smoker: false }.merge(options)) }
+  let(:set11) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 110, bptreatment: false, diabetes: true, smoker: false }.merge(options)) }
+  let(:set12) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 170, hdl: 50, systolic: 110, bptreatment: false, diabetes: false, smoker: true }.merge(options)) }
 
-  let(:set13) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 180, hdl: 50, systolic: 120, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
-  let(:set14) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 200, hdl: 50, systolic: 140, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
-  let(:set15) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 240, hdl: 50, systolic: 160, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
+  let(:set13) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 180, hdl: 50, systolic: 120, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
+  let(:set14) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 200, hdl: 50, systolic: 140, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
+  let(:set15) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 240, hdl: 50, systolic: 160, bptreatment: false, diabetes: false, smoker: false }.merge(options)) }
 
-  let(:set16) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 200, hdl: 50, systolic: 160, bptreatment: true, diabetes: false, smoker: false }.merge(options)) }
-  let(:set17) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 200, hdl: 50, systolic: 160, bptreatment: true, diabetes: true, smoker: false }.merge(options)) }
-  let(:set18) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 200, hdl: 50, systolic: 160, bptreatment: true, diabetes: true, smoker: true }.merge(options)) }
+  let(:set16) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 200, hdl: 50, systolic: 160, bptreatment: true, diabetes: false, smoker: false }.merge(options)) }
+  let(:set17) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 200, hdl: 50, systolic: 160, bptreatment: true, diabetes: true, smoker: false }.merge(options)) }
+  let(:set18) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 200, hdl: 50, systolic: 160, bptreatment: true, diabetes: true, smoker: true }.merge(options)) }
 
-  let(:set19) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 180, hdl: 30, systolic: 120, bptreatment: true, diabetes: false, smoker: true }.merge(options)) }
-  let(:set20) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 180, hdl: 40, systolic: 125, bptreatment: false, diabetes: true, smoker: true }.merge(options)) }
-  let(:set21) { Ascvd.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 180, hdl: 70, systolic: 130, bptreatment: true, diabetes: true, smoker: false }.merge(options)) }
-
-
-  describe 'age constraints' do
-    context 'at age 19' do
-      let(:options) { { age: 19 } }
-      it 'does not calculate a lifetime risk' do
-        expect(set1.lifetime_ascvd).to eq 'n/a'
-      end
-      it 'does not calculate a 10 year risk' do
-        expect(set1.ten_year_ascvd).to eq 'n/a'
-      end
-    end
-    context 'at age 20' do
-      let(:options) { { age: 20 } }
-      it 'calculates a lifetime risk' do
-        expect(set1.lifetime_ascvd).not_to eq 'n/a'
-      end
-      it 'does not calculate a 10 year risk' do
-        expect(set1.ten_year_ascvd).to eq 'n/a'
-      end
-    end
-    context 'at age 39' do
-      let(:options) { { age: 39 } }
-      it 'calculates a lifetime risk' do
-        expect(set1.lifetime_ascvd).not_to eq 'n/a'
-      end
-      it 'does not calculate a 10 year risk' do
-        expect(set1.ten_year_ascvd).to eq 'n/a'
-      end
-    end
-    context 'at age 40' do
-      let(:options) { { age: 40 } }
-      it 'calculates a lifetime risk' do
-        expect(set1.lifetime_ascvd).not_to eq 'n/a'
-      end
-      it 'calculates a 10 year risk' do
-        expect(set1.ten_year_ascvd).not_to eq 'n/a'
-      end
-    end
-    context 'at age 59' do
-      let(:options) { { age: 59 } }
-      it 'calculates a lifetime risk' do
-        expect(set1.lifetime_ascvd).not_to eq 'n/a'
-      end
-      it 'calculates a 10 year risk' do
-        expect(set1.ten_year_ascvd).not_to eq 'n/a'
-      end
-    end
-    context 'at age 60' do
-      let(:options) { { age: 60 } }
-      it 'does not calculate a lifetime risk' do
-        expect(set1.lifetime_ascvd).to eq 'n/a'
-      end
-      it 'calculates a 10 year risk' do
-        expect(set1.ten_year_ascvd).not_to eq 'n/a'
-      end
-    end
-    context 'at age 79' do
-      let(:options) { { age: 79 } }
-      it 'does not calculate a lifetime risk' do
-        expect(set1.lifetime_ascvd).to eq 'n/a'
-      end
-      it 'calculates a 10 year risk' do
-        expect(set1.ten_year_ascvd).not_to eq 'n/a'
-      end
-    end
-    context 'at age 80' do
-      let(:options) { { age: 80 } }
-      it 'does not calculate a lifetime risk' do
-        expect(set1.lifetime_ascvd).to eq 'n/a'
-      end
-      it 'does not calculate a 10 year risk' do
-        expect(set1.ten_year_ascvd).to eq 'n/a'
-      end
-    end
-  end
+  let(:set19) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 180, hdl: 30, systolic: 120, bptreatment: true, diabetes: false, smoker: true }.merge(options)) }
+  let(:set20) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 180, hdl: 40, systolic: 125, bptreatment: false, diabetes: true, smoker: true }.merge(options)) }
+  let(:set21) { Ascvd::Calculator.new({ sex: 'M', race: 'WH', age: 50, cholesterol: 180, hdl: 70, systolic: 130, bptreatment: true, diabetes: true, smoker: false }.merge(options)) }
 
 
-  describe '#errors' do
-    let(:options)  { { sex: 'X', age: 200 } }
-    it 'returns an array of errors' do
-      expect(set1.errors.length).to eq(2)
-    end
-  end
-
-  describe '#valid' do
-    context 'valid params' do
+  context 'valid params' do
+    describe '#valid?' do
       it 'returns true' do
         expect(set1).to be_valid
       end
     end
-    context 'invalid params' do
-      let(:options) { { sex: 'X' } }
+    describe '#errors' do
+      it 'returns an empty array' do
+        expect(set1.errors).to be_empty
+      end
+    end
+  end
+
+  context 'invalid params' do
+    let(:options) { { sex: 'X', age: 200 } }
+    describe '#valid?' do
       it 'returns false' do
         expect(set1).not_to be_valid
       end
     end
+    describe '#errors' do
+      it 'returns an array of errors' do
+        expect(set1.errors.length).to eq(2)
+      end
+    end
   end
+
+  describe '#to_lifetime_calculator' do
+    it 'returns an instance of LifetimeCalculator' do
+      expect(set1.to_lifetime_calculator.class).to be(Ascvd::LifetimeCalculator)
+    end
+    it 'has the same values' do
+      set1.to_lifetime_calculator.to_h.each do |key, val|
+        expect(val).to eq(set1.send(key.to_sym))
+      end
+    end
+  end
+
 
   describe 'results' do
     context "female" do

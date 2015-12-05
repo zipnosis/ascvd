@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Ascvd::BptreatmentValue do
-  let(:true_value) { Ascvd::BptreatmentValue.new(true) }
-  let(:false_value) { Ascvd::BptreatmentValue.new(false) }
-  let(:invalid_value) { Ascvd::BptreatmentValue.new('asdf') }
+describe Ascvd::Value::SmokerValue do
+  let(:true_value) { Ascvd::Value::SmokerValue.new(true) }
+  let(:false_value) { Ascvd::Value::SmokerValue.new(false) }
+  let(:invalid_value) { Ascvd::Value::SmokerValue.new('asdf') }
 
   describe 'valid?' do
     it 'return true when true' do
@@ -19,12 +19,12 @@ describe Ascvd::BptreatmentValue do
 
   describe 'error_message' do
     it 'is this when not valid' do
-      expect(invalid_value.error_message).to eq("Bptreatment must be true or false.")
+      expect(invalid_value.error_message).to eq("Smoker must be true or false.")
     end
   end
 
   it 'inherits from BooleanValue' do
-    expect(true_value.class.superclass.name).to eq('Ascvd::BooleanValue')
+    expect(true_value.class.superclass.name).to eq('Ascvd::Value::BooleanValue')
   end
 
 end

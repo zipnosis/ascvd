@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Ascvd::CholesterolValue do
-  let(:below_range_value) { Ascvd::CholesterolValue.new(129) }
-  let(:in_range_value) { Ascvd::CholesterolValue.new(200) }
-  let(:above_range_value) { Ascvd::CholesterolValue.new(321) }
+describe Ascvd::Value::CholesterolValue do
+  let(:below_range_value) { Ascvd::Value::CholesterolValue.new(129) }
+  let(:in_range_value) { Ascvd::Value::CholesterolValue.new(200) }
+  let(:above_range_value) { Ascvd::Value::CholesterolValue.new(321) }
 
 
   describe 'valid?' do
@@ -12,7 +12,7 @@ describe Ascvd::CholesterolValue do
     end
     it 'is valid for values 130-320' do
       (130..320).to_a.each do |i|
-        expect(Ascvd::CholesterolValue.new(i)).to be_valid
+        expect(Ascvd::Value::CholesterolValue.new(i)).to be_valid
       end
     end
     it 'is invalid for values over 320' do
@@ -30,7 +30,7 @@ describe Ascvd::CholesterolValue do
   end
 
   it 'inherits from RangeValue' do
-    expect(in_range_value.class.superclass.name).to eq('Ascvd::RangeValue')
+    expect(in_range_value.class.superclass.name).to eq('Ascvd::Value::RangeValue')
   end
 
 
@@ -38,7 +38,7 @@ describe Ascvd::CholesterolValue do
     it 'is true for values between 180 and 199' do
       (130..320).to_a.each do |i|
         tf = i >= 180 && i <= 199
-        expect(Ascvd::CholesterolValue.new(i).not_optimal?).to eq(tf)
+        expect(Ascvd::Value::CholesterolValue.new(i).not_optimal?).to eq(tf)
       end
     end
   end
@@ -47,7 +47,7 @@ describe Ascvd::CholesterolValue do
     it 'is true for values between 200 and 239' do
       (130..320).to_a.each do |i|
         tf = i >= 200 && i <= 239
-        expect(Ascvd::CholesterolValue.new(i).elevated?).to eq(tf)
+        expect(Ascvd::Value::CholesterolValue.new(i).elevated?).to eq(tf)
       end
     end
   end
@@ -56,7 +56,7 @@ describe Ascvd::CholesterolValue do
     it 'is true for values 240 and above' do
       (130..320).to_a.each do |i|
         tf = i >= 240
-        expect(Ascvd::CholesterolValue.new(i).major?).to eq(tf)
+        expect(Ascvd::Value::CholesterolValue.new(i).major?).to eq(tf)
       end
     end
   end

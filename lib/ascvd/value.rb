@@ -1,8 +1,9 @@
 class Ascvd::Value
   attr_accessor :value
 
-  def initialize(value)
+  def initialize(value, calculator_class = nil)
     @value = value
+    @calculator_class = calculator_class
   end
 
   def valid?
@@ -25,15 +26,22 @@ class Ascvd::Value
     raise NotImplementedError
   end
 
-
   def to_s
     value
   end
 
   private
 
+  def ten_year_calculator?
+    @calculator_class == 'Ascvd::TenYearCalculator'
+  end
+
+  def lifetime_calculator?
+    @calculator_class == 'Ascvd::LifetimeCalculator'
+  end
+
   def name
-    self.class.name.gsub(/Ascvd::|Value/,"")
+    self.class.name.gsub(/Ascvd|::|Value/,"")
   end
 
 end

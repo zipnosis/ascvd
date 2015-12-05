@@ -1,4 +1,4 @@
-class Ascvd::RangeValue < Ascvd::Value
+class Ascvd::Value::RangeValue < Ascvd::Value
 
   def valid?
     value && min_value <= value && value <= max_value

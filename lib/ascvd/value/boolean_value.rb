@@ -1,4 +1,4 @@
-class Ascvd::BooleanValue < Ascvd::Value
+class Ascvd::Value::BooleanValue < Ascvd::Value
 
   def valid?
     !!value == value

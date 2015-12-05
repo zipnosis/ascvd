@@ -1,4 +1,4 @@
-class Ascvd::ValueListValue < Ascvd::Value
+class Ascvd::Value::ValueListValue < Ascvd::Value
 
   def valid?
     valid_values.include? value

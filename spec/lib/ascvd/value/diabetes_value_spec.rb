@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Ascvd::SmokerValue do
-  let(:true_value) { Ascvd::SmokerValue.new(true) }
-  let(:false_value) { Ascvd::SmokerValue.new(false) }
-  let(:invalid_value) { Ascvd::SmokerValue.new('asdf') }
+describe Ascvd::Value::DiabetesValue do
+  let(:true_value) { Ascvd::Value::DiabetesValue.new(true) }
+  let(:false_value) { Ascvd::Value::DiabetesValue.new(false) }
+  let(:invalid_value) { Ascvd::Value::DiabetesValue.new('asdf') }
 
   describe 'valid?' do
     it 'return true when true' do
@@ -19,12 +19,12 @@ describe Ascvd::SmokerValue do
 
   describe 'error_message' do
     it 'is this when not valid' do
-      expect(invalid_value.error_message).to eq("Smoker must be true or false.")
+      expect(invalid_value.error_message).to eq("Diabetes must be true or false.")
     end
   end
 
   it 'inherits from BooleanValue' do
-    expect(true_value.class.superclass.name).to eq('Ascvd::BooleanValue')
+    expect(true_value.class.superclass.name).to eq('Ascvd::Value::BooleanValue')
   end
 
 end

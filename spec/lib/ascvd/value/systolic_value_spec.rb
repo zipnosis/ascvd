@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Ascvd::SystolicValue do
-  let(:below_range_value) { Ascvd::SystolicValue.new(89) }
-  let(:in_range_value) { Ascvd::SystolicValue.new(150) }
-  let(:above_range_value) { Ascvd::SystolicValue.new(201) }
+describe Ascvd::Value::SystolicValue do
+  let(:below_range_value) { Ascvd::Value::SystolicValue.new(89) }
+  let(:in_range_value) { Ascvd::Value::SystolicValue.new(150) }
+  let(:above_range_value) { Ascvd::Value::SystolicValue.new(201) }
 
 
   describe 'valid?' do
@@ -12,7 +12,7 @@ describe Ascvd::SystolicValue do
     end
     it 'is valid for values 90-200' do
       (90..200).to_a.each do |i|
-        expect(Ascvd::SystolicValue.new(i)).to be_valid
+        expect(Ascvd::Value::SystolicValue.new(i)).to be_valid
       end
     end
     it 'is invalid for values over 200' do
@@ -30,7 +30,7 @@ describe Ascvd::SystolicValue do
   end
 
   it 'inherits from RangeValue' do
-    expect(in_range_value.class.superclass.name).to eq('Ascvd::RangeValue')
+    expect(in_range_value.class.superclass.name).to eq('Ascvd::Value::RangeValue')
   end
 
 
@@ -38,7 +38,7 @@ describe Ascvd::SystolicValue do
     it 'is true for values between 120 and 139' do
       (90..200).to_a.each do |i|
         tf = i >= 120 && i <= 139
-        expect(Ascvd::SystolicValue.new(i).not_optimal?).to eq(tf)
+        expect(Ascvd::Value::SystolicValue.new(i).not_optimal?).to eq(tf)
       end
     end
   end
@@ -47,7 +47,7 @@ describe Ascvd::SystolicValue do
     it 'is true for values between 140 and 159' do
       (90..200).to_a.each do |i|
         tf = i >= 140 && i <= 159
-        expect(Ascvd::SystolicValue.new(i).elevated?).to eq(tf)
+        expect(Ascvd::Value::SystolicValue.new(i).elevated?).to eq(tf)
       end
     end
   end
@@ -56,7 +56,7 @@ describe Ascvd::SystolicValue do
     it 'is true for values 160 and above' do
       (90..200).to_a.each do |i|
         tf = i >= 160
-        expect(Ascvd::SystolicValue.new(i).major?).to eq(tf)
+        expect(Ascvd::Value::SystolicValue.new(i).major?).to eq(tf)
       end
     end
   end

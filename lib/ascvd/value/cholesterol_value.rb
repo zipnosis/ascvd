@@ -1,4 +1,4 @@
-class Ascvd::CholesterolValue < Ascvd::RangeValue
+class Ascvd::Value::CholesterolValue < Ascvd::Value::RangeValue
 
   MIN_VALUE = 130
   MAX_VALUE = 320

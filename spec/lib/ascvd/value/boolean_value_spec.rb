@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Ascvd::BooleanValue do
-  let(:true_value) { Ascvd::BooleanValue.new(true) }
-  let(:false_value) { Ascvd::BooleanValue.new(false) }
-  let(:invalid_value) { Ascvd::BooleanValue.new('asdf') }
+describe Ascvd::Value::BooleanValue do
+  let(:true_value) { Ascvd::Value::BooleanValue.new(true) }
+  let(:false_value) { Ascvd::Value::BooleanValue.new(false) }
+  let(:invalid_value) { Ascvd::Value::BooleanValue.new('asdf') }
 
   describe 'valid?' do
     it 'return true when true' do

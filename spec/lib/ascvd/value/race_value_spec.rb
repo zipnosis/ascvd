@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Ascvd::RaceValue do
-  let(:wh_value) { Ascvd::RaceValue.new('WH') }
-  let(:aa_value) { Ascvd::RaceValue.new('AA') }
-  let(:invalid_value) { Ascvd::RaceValue.new('XX') }
+describe Ascvd::Value::RaceValue do
+  let(:wh_value) { Ascvd::Value::RaceValue.new('WH') }
+  let(:aa_value) { Ascvd::Value::RaceValue.new('AA') }
+  let(:invalid_value) { Ascvd::Value::RaceValue.new('XX') }
 
 
   describe 'valid?' do
@@ -35,7 +35,7 @@ describe Ascvd::RaceValue do
   end
 
   it 'inherits from ValueListValue' do
-    expect(aa_value.class.superclass.name).to eq('Ascvd::ValueListValue')
+    expect(aa_value.class.superclass.name).to eq('Ascvd::Value::ValueListValue')
   end
 
 end

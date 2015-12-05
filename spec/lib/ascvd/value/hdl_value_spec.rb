@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Ascvd::HdlValue do
-  let(:below_range_value) { Ascvd::HdlValue.new(19) }
-  let(:in_range_value) { Ascvd::HdlValue.new(50) }
-  let(:above_range_value) { Ascvd::HdlValue.new(101) }
+describe Ascvd::Value::HdlValue do
+  let(:below_range_value) { Ascvd::Value::HdlValue.new(19) }
+  let(:in_range_value) { Ascvd::Value::HdlValue.new(50) }
+  let(:above_range_value) { Ascvd::Value::HdlValue.new(101) }
 
 
   describe 'valid?' do
@@ -12,7 +12,7 @@ describe Ascvd::HdlValue do
     end
     it 'is valid for values 20 - 100' do
       (20..100).to_a.each do |i|
-        expect(Ascvd::HdlValue.new(i)).to be_valid
+        expect(Ascvd::Value::HdlValue.new(i)).to be_valid
       end
     end
     it 'is invalid for ages over 100' do
@@ -30,7 +30,7 @@ describe Ascvd::HdlValue do
   end
 
   it 'inherits from RangeValue' do
-    expect(in_range_value.class.superclass.name).to eq('Ascvd::RangeValue')
+    expect(in_range_value.class.superclass.name).to eq('Ascvd::Value::RangeValue')
   end
 
 end

@@ -3,7 +3,6 @@ require 'spec_helper'
 describe Ascvd::Value do
   let(:value) { Ascvd::Value.new('abcd') }
 
-
   describe 'to_s' do
     it 'is returns value' do
       expect(value.to_s).to eq(value.value)

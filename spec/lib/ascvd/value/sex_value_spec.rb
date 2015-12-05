@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Ascvd::SexValue do
-  let(:m_value) { Ascvd::SexValue.new('M') }
-  let(:f_value) { Ascvd::SexValue.new('F') }
-  let(:invalid_value) { Ascvd::SexValue.new('X') }
+describe Ascvd::Value::SexValue do
+  let(:m_value) { Ascvd::Value::SexValue.new('M') }
+  let(:f_value) { Ascvd::Value::SexValue.new('F') }
+  let(:invalid_value) { Ascvd::Value::SexValue.new('X') }
 
 
   describe 'valid?' do
@@ -35,7 +35,7 @@ describe Ascvd::SexValue do
   end
 
   it 'inherits from ValueListValue' do
-    expect(m_value.class.superclass.name).to eq('Ascvd::ValueListValue')
+    expect(m_value.class.superclass.name).to eq('Ascvd::Value::ValueListValue')
   end
 
 end

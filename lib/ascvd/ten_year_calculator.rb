@@ -1,8 +1,9 @@
-module TenYearCalculator
+class Ascvd::TenYearCalculator < Ascvd::Calculator
 
-  def ten_year_ascvd
+  VALUES = %I{ sex age race cholesterol hdl systolic bptreatment diabetes smoker }.freeze
+
+  def value
     return unless valid?
-    return 'n/a' if age < 40 or age > 79
 
     chart = {
       'M' => {

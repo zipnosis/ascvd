@@ -1,4 +1,4 @@
-class Ascvd::SystolicValue < Ascvd::RangeValue
+class Ascvd::Value::SystolicValue < Ascvd::Value::RangeValue
 
   MIN_VALUE = 90
   MAX_VALUE = 200

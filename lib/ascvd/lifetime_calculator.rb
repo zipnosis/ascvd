@@ -1,5 +1,6 @@
-module LifetimeCalculator
+class Ascvd::LifetimeCalculator < Ascvd::Calculator
 
+  VALUES = %I{ sex age cholesterol systolic bptreatment diabetes smoker }.freeze
   ISSUE_KEYS = %I{ cholesterol systolic bptreatment diabetes smoker }.freeze
   LIFETIME_VALUES = {
       "M" => [0.69,0.50,0.46,0.36,0.05],
@@ -7,9 +8,8 @@ module LifetimeCalculator
     }.freeze
 
 
-  def lifetime_ascvd
+  def value
     return unless valid?
-    return 'n/a' if age < 20 or age > 59
 
     return LIFETIME_VALUES[sex][0] if major_issues >= 2
     return LIFETIME_VALUES[sex][1] if major_issues == 1
