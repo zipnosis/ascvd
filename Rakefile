@@ -19,8 +19,8 @@ Jeweler::Tasks.new do |gem|
   gem.license = 'MIT'
   gem.summary = %(ASCVD 10-year and lifetime risk calculator)
   gem.description = %(ASCVD 10-year and lifetime risk calculator)
-  gem.email = 'derek@zipnosis.com'
-  gem.authors = ['Derek Rockwell', 'Cory Dingels']
+  gem.email = 'developers@zipnosis.com.com'
+  gem.authors = ['Zipnosis, Inc.']
 end
 Jeweler::RubygemsDotOrgTasks.new
 
