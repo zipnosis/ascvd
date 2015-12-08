@@ -38,6 +38,6 @@ false
 
 ### Copyright
 
-Copyright (c) 2015 Derek Rockwell. See LICENSE.txt for
+Copyright (c) 2015 Zipnosis, Inc. See LICENSE.txt for
 further details.
 
