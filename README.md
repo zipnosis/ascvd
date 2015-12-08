@@ -1,6 +1,6 @@
 ## ascvd
 
-Library to calculate 10-year and lifetime risks for atherosclerotic cardiovascular disease (ASCVD) using the Pooled Cohort Equations and lifetime risk prediction tools. This is based on the 2013 ACC/AHA Guideline on the Assessment of Cardiovascular Risk and the 2013 ACC/AHA Guideline on the Treatment of Blood Cholesterol to Reduce Atherosclerotic Cardiovascular Risk in Adults.
+Library to calculate 10-year and lifetime risks for atherosclerotic cardiovascular disease (ASCVD) using the Pooled Cohort Equations and lifetime risk prediction tools. This is based on the [2013 ACC/AHA Guideline on the Assessment of Cardiovascular Risk](https://circ.ahajournals.org/content/early/2013/11/11/01.cir.0000437741.48606.98) and the 2013 ACC/AHA Guideline on the Treatment of Blood Cholesterol to Reduce Atherosclerotic Cardiovascular Risk in Adults.
 
 ### Usage
 
